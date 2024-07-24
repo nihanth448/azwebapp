@@ -16,13 +16,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: UseDotNet@2
-  inputs:
-   packageType: 'sdk'
-   version: '6.x'
-
-- task: NuGetToolInstaller@1
-
 
 - task: DotNetCoreCLI@2
   displayName: Build
@@ -36,5 +29,5 @@ steps:
     command: publish
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
+    zipAfterPublish: false
 
